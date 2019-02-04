@@ -15,13 +15,13 @@ void run_waiter(){
 
 int main(){
   cout<<"Hello world";
-  vector <std::thread> threads;
+  thread* threads[5];
   int numPhilosophers = 5;
 
 // spawn philosophers
   for (int i = 0; i < numPhilosophers; i++){
     thread t(run_philosopher, i);
-    threads.push_back(t);
+    threads[i](&t);
   }
 
 
@@ -30,7 +30,7 @@ int main(){
 
 // join threads
   for (int i = 0; i < threads.size(); i++){
-    threads.at(i).join();
+    *(threads.[i]).join();
   }
 
   waiter.join();
