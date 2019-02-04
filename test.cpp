@@ -28,7 +28,8 @@ void run_philosopher(int threadNum){
       printf("Philosopher %d putting back fork %d\n", threadNum, threadNum - 1);
       FORKS[threadNum - 1] = true;
     }
-
+    LOCK.unlock();
+    
     printf("Philosopher %d eating\n", threadNum);
     hunger -= 10;
     printf("Philosopher %d putting down forks\n", threadNum);
@@ -36,7 +37,7 @@ void run_philosopher(int threadNum){
     FORKS[threadNum - 1] = true;
     FORKS[threadNum % NUM_PHILOSOPHERS] = true;
 
-    LOCK.unlock();
+
   }
   printf("Philosopher %d done eating\n", threadNum);
   return;
