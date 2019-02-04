@@ -15,7 +15,7 @@ void run_waiter(){
 
 int main(){
   cout<<"Hello world"<<endl;
-  thread* threads[5];
+  thread threads[5];
   int numPhilosophers = 5;
 
 // spawn philosophers
@@ -23,7 +23,7 @@ int main(){
     cout<<"Spawning thread "<<i<<endl;
     thread t(run_philosopher, i);
     cout<<"Spawned thread "<<i<<endl;
-    threads[i] = &t;
+    threads[i] = t;
   }
 
   cout<<"Spawning waiter"<<endl;
@@ -33,7 +33,7 @@ int main(){
 // join threads
   for (int i = 0; i < numPhilosophers; i++){
     cout<<"Joining thread "<<i<<endl;
-    threads[i]->join();
+    threads[i].join();
   }
 
   waiter.join();
