@@ -14,22 +14,24 @@ void run_waiter(){
 }
 
 int main(){
-  cout<<"Hello world";
+  cout<<"Hello world"<<endl;
   thread* threads[5];
   int numPhilosophers = 5;
 
 // spawn philosophers
   for (int i = 0; i < numPhilosophers; i++){
+    cout<<"Spawning thread "<<i<<endl;
     thread t(run_philosopher, i);
     threads[i] = &t;
   }
 
-
+  cout<<"Spawning waiter"<<endl;
 //spawn waiter
   std::thread waiter(run_waiter);
 
 // join threads
   for (int i = 0; i < numPhilosophers; i++){
+    cout<<"Joining thread "<<i<<endl;
     threads[i]->join();
   }
 
