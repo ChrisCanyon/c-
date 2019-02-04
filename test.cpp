@@ -14,11 +14,11 @@ void run_waiter(){
 }
 
 int main(){
-  thread t1(run_philosopher, i);
-  thread t2(run_philosopher, i);
-  thread t3(run_philosopher, i);
-  thread t4(run_philosopher, i);
-  thread t5(run_philosopher, i);
+  thread t1(run_philosopher, 1);
+  thread t2(run_philosopher, 2);
+  thread t3(run_philosopher, 3);
+  thread t4(run_philosopher, 4);
+  thread t5(run_philosopher, 5);
 
 //spawn waiter
   std::thread waiter(run_waiter);
