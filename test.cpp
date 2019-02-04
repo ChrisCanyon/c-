@@ -12,33 +12,33 @@ void run_philosopher(int threadNum){
   int hunger = 100;
   while (hunger > 0) {
     LOCK.lock();
-    printf("Philosopher %d picking up forks", threadNum);
+    printf("Philosopher %d picking up forks\n", threadNum);
     if (FORKS[threadNum - 1]){
-      printf("Philosopher %d picked up fork %d", threadNum, threadNum - 1);
+      printf("Philosopher %d picked up fork %d\n", threadNum, threadNum - 1);
       FORKS[threadNum - 1] = false;
     } else {
-      printf("Philosopher %d fork not available", threadNum);
+      printf("Philosopher %d fork not available\n", threadNum);
       return;
     }
     if (FORKS[threadNum % NUM_PHILOSOPHERS]){
-      printf("Philosopher %d picked up fork %d", threadNum, threadNum % NUM_PHILOSOPHERS);
+      printf("Philosopher %d picked up fork %d\n", threadNum, threadNum % NUM_PHILOSOPHERS);
       FORKS[threadNum % NUM_PHILOSOPHERS] = false;
     } else {
-      printf("Philosopher %d fork not available", threadNum);
-      printf("Philosopher %d putting back fork %d", threadNum, threadNum - 1);
+      printf("Philosopher %d fork not available\n", threadNum);
+      printf("Philosopher %d putting back fork %d\n", threadNum, threadNum - 1);
       FORKS[threadNum - 1] = true;
     }
 
-    printf("Philosopher %d eating", threadNum);
+    printf("Philosopher %d eating\n", threadNum);
     hunger -= 10;
-    printf("Philosopher %d putting down forks", threadNum);
+    printf("Philosopher %d putting down forks\n", threadNum);
 
     FORKS[threadNum - 1] = true;
     FORKS[threadNum % NUM_PHILOSOPHERS] = true;
 
     LOCK.unlock();
   }
-  printf("Philosopher %d done eating", threadNum);
+  printf("Philosopher %d done eating\n", threadNum);
   return;
 }
 
