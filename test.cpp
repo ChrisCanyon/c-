@@ -21,7 +21,7 @@ int main(){
 // spawn philosophers
   for (int i = 0; i < numPhilosophers; i++){
     thread t(run_philosopher, i);
-    threads[i](&t);
+    threads[i] = &t;
   }
 
 
@@ -29,7 +29,7 @@ int main(){
   std::thread waiter(run_waiter);
 
 // join threads
-  for (int i = 0; i < threads.size(); i++){
+  for (int i = 0; i < numPhilosophers; i++){
     *(threads.[i]).join();
   }
 
