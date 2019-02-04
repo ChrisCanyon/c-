@@ -22,6 +22,7 @@ int main(){
   for (int i = 0; i < numPhilosophers; i++){
     cout<<"Spawning thread "<<i<<endl;
     thread t(run_philosopher, i);
+    cout<<"Spawned thread "<<i<<endl;
     threads[i] = &t;
   }
 
