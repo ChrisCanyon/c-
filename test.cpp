@@ -6,7 +6,7 @@
 using namespace std;
 
 mutex LOCK;
-boolean FORKS = [true, true, true, true, true];
+boolean FORKS[5] = {true, true, true, true, true};
 int NUM_PHILOSOPHERS = 5;
 void run_philosopher(int threadNum){
   int hunger = 100;
