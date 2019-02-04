@@ -20,7 +20,8 @@ int main(){
 
 // spawn philosophers
   for (int i = 0; i < numPhilosophers; i++){
-    threads.push_back(thread(run_philosopher, i));
+    thread t(run_philosopher, i);
+    threads.push_back(t);
   }
 
 
