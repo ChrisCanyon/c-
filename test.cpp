@@ -30,7 +30,7 @@ int main(){
 
 // join threads
   for (int i = 0; i < numPhilosophers; i++){
-    *(threads.[i]).join();
+    *(threads[i]).join();
   }
 
   waiter.join();
