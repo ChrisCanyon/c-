@@ -68,15 +68,16 @@ class BTree{
     void print(){
       cout<<"Printing\n";
       if (root->right == NULL){
-        printf("empty graph");
+        printf("empty graph\n");
         return;
       }
-      recursivePrint(root, 0);
+      recursivePrint(root->right, 0);
       cout<<"done printing\n";
     }
 
   private:
     void recursivePrint(node * n, int depth){
+
       if (n == NULL) return;
       printf("Level %d: %*d%d\n", depth, depth, *(n->value));
       recursivePrint(n->right, depth+2);
@@ -91,10 +92,9 @@ int main(){
   int c = 20;
   int d = 1;
 
-  t.add(&a);
-
   t.print();
-
+  t.add(&a);
+  t.print();
   t.add(&b);
   t.print();
   t.add(&c);
