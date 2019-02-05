@@ -19,12 +19,24 @@ class DirectedGraph {
       distances.push_back(distance);
     }
 
+    void remove(DirectedGraph* toRemove){
+      for(int i = 0; i < connections.size(); i++){
+        if (connections.at(i) == toRemove){
+          connections.erase(connections.begin() + i);
+          // Should also free
+        }
+      }
+    }
+
     void print(){
       cout<<label<<" is connected to: ";
       for (int i = 0; i < connections.size(); i++){
         cout<<connections.at(i)->label<<", ";
       }
       cout<<endl;
+      for (int i = 0; i < connections.size(); i++){
+        connections.at(i)->print();
+      }
     }
 };
 
@@ -40,11 +52,9 @@ int main(){
   e.add(&g,2);
 
   a.print();
-  b.print();
-  c.print();
-  d.print();
-  e.print();
-  f.print();
-  g.print();
 
+  cout<<"Removing"<<endl;
+  a.remove(&d);
+
+  a.print();
 }
