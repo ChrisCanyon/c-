@@ -29,7 +29,7 @@ void run_philosopher(int threadNum){
       FORKS[threadNum - 1] = true;
     }
     LOCK.unlock();
-    
+
     printf("Philosopher %d eating\n", threadNum);
     hunger -= 10;
     printf("Philosopher %d putting down forks\n", threadNum);
@@ -64,6 +64,6 @@ int main(){
   t4.join();
   t5.join();
 
-  printf("Finished joining. Main done.");
+  printf("Finished joining. Main done.\n");
   return 0;
 }
