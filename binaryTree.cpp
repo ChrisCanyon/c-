@@ -79,7 +79,7 @@ class BTree{
     void recursivePrint(node * n, int depth){
 
       if (n == NULL) return;
-      printf("Level %d: %*d%d\n", depth, depth, *(n->value));
+      printf("Level %d: %d\n", depth, *(n->value));
       recursivePrint(n->right, depth+2);
       recursivePrint(n->left, depth+2);
     }
